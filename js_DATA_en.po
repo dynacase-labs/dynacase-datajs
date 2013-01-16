@@ -1,0 +1,38 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Data 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-15 16:41+0100\n"
+"PO-Revision-Date: 2013-01-15 16:45+0100\n"
+"Last-Translator: anakeen\n"
+"Language-Team: english\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+
+msgid "data::login not defined"
+msgstr "login not defined"
+
+#, fuzzy
+msgid "data::no tag specified"
+msgstr "login not defined"
+
+msgid "data::password not defined"
+msgstr "password not defined"
+
+msgid "data:action name not set"
+msgstr "action name not set"
+
+msgid "data:document id must not be an object"
+msgstr "document id must not be an object"
+
+#, fuzzy
+msgid "data:document id not set"
+msgstr "document id must not be an object"
+
+msgid "save : document is fixed"
+msgstr ""
+
+msgid "setValue: document is fixed"
+msgstr ""

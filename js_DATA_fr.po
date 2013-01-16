@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-15 16:41+0100\n"
+"PO-Revision-Date: 2013-01-15 16:44+0100\n"
+"Last-Translator: anakeen <devel@anakeen.com>\n"
+"Language-Team: French <distrib@anakeen.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+
+msgid "data::login not defined"
+msgstr "login non défini"
+
+msgid "data::no tag specified"
+msgstr "pas de tag donné"
+
+msgid "data::password not defined"
+msgstr "mot de passe non défini"
+
+msgid "data:action name not set"
+msgstr "nom de l'action non mis"
+
+msgid "data:document id must not be an object"
+msgstr "l'identificateur du document ne doit pâs être un objet"
+
+#, fuzzy
+msgid "data:document id not set"
+msgstr "l'identificateur du document ne doit pâs être un objet"
+
+msgid "save : document is fixed"
+msgstr "save : le document est bien changé"
+
+msgid "setValue: document is fixed"
+msgstr "setValue: le document est bien changé"
