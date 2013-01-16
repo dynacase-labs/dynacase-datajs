@@ -1,0 +1,279 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Platform\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-15 16:41+0100\n"
+"PO-Revision-Date: 2013-01-15 11:49+0100\n"
+"Last-Translator: Anakeen <dev@anakeen.com>\n"
+"Language-Team: French <distrib@anakeen.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+
+#, c-format
+msgid "%d day"
+msgstr "%d jour"
+
+#, c-format
+msgid "%d days"
+msgstr "%d jours"
+
+#, c-format
+msgid "%d hour"
+msgstr "%d heure"
+
+#, c-format
+msgid "%d hours"
+msgstr "%d heures"
+
+#, c-format
+msgid "%d minute"
+msgstr "%d minute"
+
+#, c-format
+msgid "%d minutes"
+msgstr "%d minutes"
+
+msgid "Data api"
+msgstr "Api données"
+
+msgid "User must be authenticate"
+msgstr "L'utilisateur doit être authentifié"
+
+msgid "actions"
+msgstr "les actions"
+
+msgid "addState: missing parameter"
+msgstr "addState: paramètre manquant"
+
+msgid "alterTransitiontype: missing parameter"
+msgstr "alterTransitiontype: paramètre manquant"
+
+#, c-format
+msgid "application %s not defined"
+msgstr "l'application %s n'est pas définie"
+
+msgid "application name not set"
+msgstr "Le nom de l'application n'est pas renseigné"
+
+msgid "application not initialized"
+msgstr "application non initialisée"
+
+msgid "application ressource"
+msgstr "ressource application"
+
+#, c-format
+msgid "attribute [%s] already exists : cannot add it"
+msgstr "attribut [%s] déjà présent : ne peut être ajouté"
+
+#, c-format
+msgid ""
+"attribute [%s] identifier syntax is unavalaible. Must have only alphanumeric "
+"characters and must not includes spaces"
+msgstr ""
+"La syntaxe de l'idenitifiant d'attribut [%s] est non valide. Seuls des "
+"caractères alphanumérique sont autorisés et les espaces sont exclus."
+
+#, c-format
+msgid "attribute [%s] not exists : cannot delete it"
+msgstr "L'attribut [%s] n'existe pas : impossible de le supprimer"
+
+#, c-format
+msgid "attribute [%s] not exists : cannot modify it"
+msgstr "L'attribut [%s] n'existe pas : impossible de le modifier"
+
+#, c-format
+msgid "attribute [%s] visibility must be one of H,R,W,S,O,I,U"
+msgstr "La visibilité de l'attribut [%s] ne peut être que  H,R,W,S,O,I,U"
+
+msgid "attribute identifier is null"
+msgstr "l'identifiant de l'attribut est nul"
+
+#, c-format
+msgid "attribute unknow %s"
+msgstr "attribut %s inconnu"
+
+#, c-format
+msgid "authentication failed for %s"
+msgstr "échec d'authentification pour %s"
+
+#, c-format
+msgid "cannot create document for family [%s]"
+msgstr "création de document impossible pour la famille [%s]"
+
+#, c-format
+msgid "change %s"
+msgstr "modification %s"
+
+#, c-format
+msgid "change version to %s"
+msgstr "Nouvelle version %s"
+
+msgid "confidential document"
+msgstr "document confidentiel"
+
+#, c-format
+msgid "data:document %s is not a family"
+msgstr "Document %s n'est pas une famille"
+
+#, c-format
+msgid "data:family %s not alive"
+msgstr "Famille %s non vivante"
+
+msgid "data:getsubfamilies no family parameter"
+msgstr "data:getsubfamilies pas de famille donnée en paramètre"
+
+msgid "description"
+msgstr "Description"
+
+#, c-format
+msgid "document %d deleted"
+msgstr "document %d supprimé"
+
+#, c-format
+msgid "document %d inserted"
+msgstr "document %d inséré"
+
+#, c-format
+msgid "document %d moved"
+msgstr "Document %d déplacé"
+
+#, c-format
+msgid "document %d unlinked"
+msgstr "Document %d non lié"
+
+#, c-format
+msgid "document %s is not a folder"
+msgstr "le document %s n'est pas un dossier"
+
+#, c-format
+msgid "document %s not exist"
+msgstr "document %s n'existe pas"
+
+msgid "document not initialized"
+msgstr "document non initialisé"
+
+msgid "document not set"
+msgstr "document non renseigné"
+
+msgid "document ressource"
+msgstr "ressource document"
+
+msgid "dynlabel"
+msgstr "Label dynacase"
+
+msgid "empty reference"
+msgstr "Référence vide"
+
+msgid "format in date"
+msgstr "Format de date"
+
+msgid "getSelection: no configuration set"
+msgstr "Pas de configuration affectée"
+
+msgid "group document request"
+msgstr "requête groupée de documents"
+
+msgid "information access deny"
+msgstr "Information non accessible"
+
+msgid "label"
+msgstr "désignation"
+
+msgid "maintenance in progress"
+msgstr "Maintenance en cours"
+
+#, c-format
+msgid "method %s not defined"
+msgstr "la méthode %s n'est pas définie"
+
+#, c-format
+msgid "method %s not possible"
+msgstr "méthode %s non accessible"
+
+msgid "modifyTransition: missing parameter"
+msgstr "modifyTransition: paramètre manquant"
+
+msgid "no identificator"
+msgstr "pas d'identificateur"
+
+msgid "no identifier set"
+msgstr "aucun identificateur fourni"
+
+#, c-format
+msgid "no privilege view for %d"
+msgstr "pas de privilège \"voir\" pour %d"
+
+msgid "not authenticated"
+msgstr "non authentifié"
+
+msgid "not authenticated:ERRNO_BUG_639"
+msgstr "non authentifié : ERRNO_BUG_639"
+
+#, c-format
+msgid "not authorized : parameter %s is not a user parameter"
+msgstr "non autorisé: le paramètre %s n'est pas un paramètre utilisateur"
+
+msgid "nothing to add"
+msgstr "rien à ajouter"
+
+msgid "nothing to insert"
+msgstr "rien à insérer"
+
+msgid "nothing to unlink"
+msgstr "rien à supprimer"
+
+#, c-format
+msgid "parameter %s not exists"
+msgstr "paramètre %s n'existe pas"
+
+#, c-format
+msgid "parent attribute [%s] not exists : cannot add it"
+msgstr "L'attribut parent [%s] n'existe pas : impossible de l'ajouter"
+
+msgid "request empty reference"
+msgstr "Requête d'une référence vide"
+
+msgid "reset version"
+msgstr "identifiant de version effacé"
+
+msgid "revision of document"
+msgstr "révision du document"
+
+#, c-format
+msgid "search %s"
+msgstr "recherche %s"
+
+msgid "short_name"
+msgstr "nom abrégé"
+
+#, c-format
+msgid ""
+"syntax error for order %s. May be an integer or a relative upto or downto "
+"identificator"
+msgstr ""
+"Erreur de syntaxe pour l'ordre %s. Il est possible que ce soit à cause d'un "
+"chiffre ou un problème de majuscule/minuscule dans l'identifiant"
+
+#, c-format
+msgid "target folder [%s] is not a folder"
+msgstr "le dossier destination [%s] n'est pas un dossier"
+
+#, c-format
+msgid "target folder [%s] is not set"
+msgstr "le dossier destination [%s] n'est pas déclaré"
+
+#, c-format
+msgid "user %s not found"
+msgstr "Utilisateur %s introuvable"
+
+msgid "user not initialized"
+msgstr "utilisateur non initialisé"
+
+msgid "user ressource"
+msgstr "ressource utilisateur"
+
+#, c-format
+msgid "workflow file %s is not writable"
+msgstr "le fichier \"%s\" du workflow n'est pas modifiable"

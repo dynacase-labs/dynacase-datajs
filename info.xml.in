@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<module name="@PACKAGE@" disabled="no" version="@VERSION@"
+    release="@RELEASE@">
+
+    <description>Dynacase data lib js.
+    </description>
+
+    <requires>
+    </requires>
+
+    <post-install>
+         <process command="programs/DATA_init">
+            <label>Reactivate DATA application</label>
+        </process>
+        <process command="programs/record_application DATA I" />
+        <process command="programs/update_catalog" />
+    </post-install>
+
+    <post-upgrade>
+        <process command="programs/pre_migration DATA" />
+        <process command="programs/record_application DATA U" />
+        <process command="programs/post_migration DATA" />
+        <process command="programs/update_catalog" />
+    </post-upgrade>
+
+    <changelog>
+    </changelog>
+
+</module>
