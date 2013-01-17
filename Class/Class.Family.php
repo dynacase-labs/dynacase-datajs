@@ -14,7 +14,6 @@
  */
 /**
  */
-include_once ("DATA/Class.Document.php");
 /**
  * Family Class
  *
