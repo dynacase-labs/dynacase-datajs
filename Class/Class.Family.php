@@ -219,7 +219,7 @@ class Fdl_Family extends Fdl_Document
                         reset($la);
                         while (list($k, $v) = each($la)) {
                             if ($k == $oar->id) {
-                                $oaprev = $_oaprev;
+                                
                                 break;
                             }
                         }
@@ -277,7 +277,7 @@ class Fdl_Family extends Fdl_Document
             }
             if ($label !== null) $oattr->labeltext = $label;
             if ($intitle !== null) $oattr->title = $intitle ? 'Y' : 'N';
-            if ($inabtract !== null) $oattr->abstract = $inabtract ? 'Y' : 'N';
+            if ($inabstract !== null) $oattr->abstract = $inabstract ? 'Y' : 'N';
             if ($needed !== null) $oattr->needed = $needed ? 'Y' : 'N';
             if ($type !== null) $oattr->type = $type;
             if ($parent !== null) $oattr->frameid = $parent ? $parent : "0";

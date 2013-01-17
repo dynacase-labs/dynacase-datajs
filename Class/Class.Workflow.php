@@ -277,7 +277,7 @@ msgstr "%s"', $key, str_replace('"', '\"', $text));
         return $this->alterTransitiontype("remove", $key);
     }
     
-    private function alterTransitiontype($addorrem, $key, $label = '', $ask = null, $preMethod = null, $postmethod = null, $noComment = null, $autoNext = null)
+    private function alterTransitiontype($addorrem, $key, $label = '', $ask = null, $preMethod = null, $postMethod = null, $noComment = null, $autoNext = null)
     {
         if ($this->doc) {
             if (true) {
@@ -312,7 +312,7 @@ msgstr "%s"', $key, str_replace('"', '\"', $text));
                     $transitions[$key] = array(
                         "ask" => $ask,
                         "m1" => $preMethod,
-                        "m2" => $postmethod,
+                        "m2" => $postMethod,
                         "nr" => $noComment
                     );
                 }

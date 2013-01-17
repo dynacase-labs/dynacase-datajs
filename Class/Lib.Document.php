@@ -20,6 +20,7 @@ function getDavUrl($docid, $vid)
     if (include_once ("DAV/getsessionid.php")) {
         return dav_getdavurl($docid, $vid);
     }
+    return '';
 }
 /** 
  * return document list for relation attribute
@@ -44,7 +45,7 @@ function searchByTitle($famid, $key)
     return $out;
 }
 
-function getSearchCriteria(stdClass &$out)
+function getSearchCriteria(stdClass & $out)
 {
     $s = new DocSearch();
     $operators = $s->top;
