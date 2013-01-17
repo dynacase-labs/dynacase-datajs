@@ -335,11 +335,10 @@ class Fdl_Collection extends Fdl_Document
             $s->slice = $slice;
             $s->start = $start;
             if ($orderby) $s->orderby = $orderby;
-            $s->setDebugMode();
             $s->setObjectReturn();
             $s->excludeConfidential();
             $s->search();
-            $info = $s->getDebugInfo();
+            $info = $s->getSearchInfo();
             $out->error = $info["error"];
             $out->info = $info;
             
@@ -369,10 +368,9 @@ class Fdl_Collection extends Fdl_Document
                 if (($out->totalCount == $slice) || ($start > 0)) {
                     $s->slice = 'ALL';
                     $s->start = 0;
-                    $s->setDebugMode();
                     $s->reset();
                     $out->totalCount = $s->onlyCount();
-                    $info = $s->getDebugInfo();
+                    $info = $s->getSearchInfo();
                     
                     $out->delay.= ' count:' . $info["delay"];
                 }
@@ -450,7 +448,7 @@ class Fdl_Collection extends Fdl_Document
     {
         $out = new stdClass();
         if ($this->docisset()) {
-            $err = $this->doc->delFile($docid);
+            $err = $this->doc->removeDocument($docid);
             if ($err != "") {
                 $this->setError($err);
                 $out->error = $err;
@@ -480,7 +478,7 @@ class Fdl_Collection extends Fdl_Document
                 $out->error = $err;
             } else {
                 foreach ($ids as $docid) {
-                    $err = $this->doc->delFile($docid);
+                    $err = $this->doc->removeDocument($docid);
                     if ($err != "") {
                         $out->notunlinked[$docid] = $err;
                     } else {
@@ -575,7 +573,7 @@ class Fdl_Collection extends Fdl_Document
             $tdocs = $os->getRawDocuments();
             $out->notinserted = array();
             $out->inserted = array();
-            $err = $this->doc->insertMDoc($tdocs, "latest", false, $out->inserted, $out->notinserted);
+            $err = $this->doc->insertMultipleDocuments($tdocs, "latest", false, $out->inserted, $out->notinserted);
             $out->insertedCount = count($out->inserted);
             $out->notInsertedCount = count($out->notinserted);
             $out->error = $err;

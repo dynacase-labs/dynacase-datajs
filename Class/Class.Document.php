@@ -586,7 +586,7 @@ class Fdl_Document
             $needpostmodif = (is_array($olds));
             
             $this->doc->refresh();
-            if ($needpostmodif) $this->doc->postModify();
+            if ($needpostmodif) $this->doc->postStore();
             $err = $this->doc->modify();
             $this->setError($err);
             if ($err == "") {
@@ -616,9 +616,7 @@ class Fdl_Document
     
     function create()
     {
-        $this->doc->refresh();
-        $this->doc->postModify();
-        $err = $this->doc->add();
+        $err = $this->doc->store($info, true);
         $this->setError($err);
     }
     
@@ -771,7 +769,7 @@ class Fdl_Document
                                     /**
                                      * @var Dir $d
                                      */
-                                    $err = $d->delFile($this->doc->initid);
+                                    $err = $d->removeDocument($this->doc->initid);
                                     if ($err == "") {
                                         $this->doc->prelid = $da->initid;
                                         $this->doc->modify(true, array(

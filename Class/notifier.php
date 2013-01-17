@@ -16,6 +16,7 @@ include_once ("WHAT/Lib.Common.php");
 function getNotifyHisto($date, $nextdelay = 5, $limit = 1000)
 {
     $c = @pg_pconnect(sprintf("service='%s'", getServiceFreedom()));
+    $r = null;
     if ($c) {
         $r["date"] = date("Y-m-d H:i:s");
         $r["delay"] = $nextdelay;
