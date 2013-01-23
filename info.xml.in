@@ -6,7 +6,6 @@
     </description>
 
     <requires>
-        <module name="dynacase-core" version="3.2.5" comp="ge" />
     </requires>
 
     <post-install>
