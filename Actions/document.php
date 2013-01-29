@@ -16,7 +16,6 @@
 /**
  */
 
-include_once ("DATA/Class.Collection.php");
 /**
  * Retrieve and set documents
  * @param Action &$action current action
