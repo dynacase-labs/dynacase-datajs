@@ -14,7 +14,7 @@
  */
 /**
  */
-include_once ("DATA/Class.Document.php");
+
 /**
  * Workflow Class
  *
