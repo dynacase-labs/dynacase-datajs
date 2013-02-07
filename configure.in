@@ -20,27 +20,20 @@ AC_SUBST(PACKAGE)
 PACKAGE=dynacase-datajs
 AC_SUBST(APPNAME)
 APPNAME=DATA
-ac_default_prefix=/usr/share/what
-AC_SUBST(PUBRULE)
-PUBRULE=
-AC_ARG_WITH(pubrule, [  --with-pubrule=dir	Path to PubRule], PUBRULEDIR=$withval)
-if test "x$PUBRULEDIR" != "x"; then
-  AC_CHECK_FILE($PUBRULEDIR/PubRule, PUBRULE=$PUBRULEDIR/PubRule)
-fi
 
-if test "x$PUBRULE" == "x"; then
-  PUBRULEDIR=`pwd`
-  AC_CHECK_FILE($PUBRULEDIR/PubRule, PUBRULE=$PUBRULEDIR/PubRule)
+ac_default_prefix=/var/www/dynacase
+
+AC_SUBST(PUBRULE)
+PUBRULE="$(pwd)/buildTools"
+AC_ARG_WITH(pubrule, [  --with-pubrule=dir	Path to PubRule], PUBRULE=$withval)
+if test -z ${PUBRULE}; then
+    PUBRULE=`pwd`
 fi
-if test "x$PUBRULE" == "x"; then
-  PUBRULEDIR=$HOME/anakeen/devtools
-  AC_CHECK_FILE($PUBRULEDIR/PubRule, PUBRULE=$PUBRULEDIR/PubRule)
+if test -f $PUBRULE/PubRule; then
+    AC_MSG_NOTICE([PubRule located at $PUBRULE])
+else
+    AC_MSG_ERROR([Could not find PubRule])
 fi
-if test "x$PUBRULE" = "x"; then
-  AC_MSG_ERROR([Could not find PubRule])
-fi
-AC_MSG_NOTICE([PubRule located at $PUBRULEDIR])
-PUBRULE=$PUBRULEDIR
 
 #AC_OUTPUT(Makefile GEARS_init.php freedom-gears.spec debian/changelog info.xml)
 AC_OUTPUT(Makefile info.xml DATA_init.php )
