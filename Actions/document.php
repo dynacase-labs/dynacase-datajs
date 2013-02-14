@@ -15,7 +15,6 @@
  */
 /**
  */
-
 /**
  * Retrieve and set documents
  * @param Action &$action current action
@@ -79,6 +78,7 @@ function documentApplyMethod(Action & $action, $id, $method, &$returntype, &$out
     $onlyValues = false;
     $doc = null;
     $out = new stdClass();
+    $debugMode = ($action->getParam("DATA_DEBUG") == "yes");
     switch ($method) {
         case 'getselection':
             $config = getHttpVars("config");
@@ -102,6 +102,7 @@ function documentApplyMethod(Action & $action, $id, $method, &$returntype, &$out
             }
             $doc = new Fdl_Collection($id);
             if (!$doc->error) {
+                $doc->setDebugMode($debugMode);
                 $doc->setContentCompleteProperties($action->getArgument("completeProperties", "false") == "true");
                 $doc->setContentOnlyValue($action->getArgument("onlyValues", "true") == "true");
                 $doc->setContentOrderBy($action->getArgument("orderBy"));
@@ -140,6 +141,7 @@ function documentApplyMethod(Action & $action, $id, $method, &$returntype, &$out
             else {
                 $doc = new Fdl_Collection();
                 if (!$doc->error) {
+                    $doc->setDebugMode($debugMode);
                     $cc = (getHttpVars("controlCreation", "false") == "true");
                     $out = $doc->getSubFamilies($famid, $cc);
                 } else $out->error = $doc->error;
@@ -150,6 +152,7 @@ function documentApplyMethod(Action & $action, $id, $method, &$returntype, &$out
             $onlyValues = getHttpVars("onlyValues", "true") == "true";
             $doc = new Fdl_Collection();
             if (!$doc->error) {
+                $doc->setDebugMode($debugMode);
                 $key = getHttpVars("key");
                 $famid = getHttpVars("family", getHttpVars("famid", 0));
                 $start = getHttpVars("start", 0);
@@ -191,6 +194,7 @@ function documentApplyMethod(Action & $action, $id, $method, &$returntype, &$out
         case 'insertdocument':
             $doc = new Fdl_Collection($id);
             if (!$doc->error) {
+                $doc->setDebugMode($debugMode);
                 $idtoadd = getHttpVars("idtoadd");
                 if (!$idtoadd) $out->error = _("nothing to add");
                 else $out = $doc->insertDocument($idtoadd);
@@ -200,6 +204,7 @@ function documentApplyMethod(Action & $action, $id, $method, &$returntype, &$out
         case 'unlinkdocument':
             $doc = new Fdl_Collection($id);
             if (!$doc->error) {
+                $doc->setDebugMode($debugMode);
                 $idtoadd = getHttpVars("idtounlink");
                 if (!$idtoadd) $out->error = _("nothing to unlink");
                 else $out = $doc->unlinkDocument($idtoadd);
@@ -219,6 +224,7 @@ function documentApplyMethod(Action & $action, $id, $method, &$returntype, &$out
         case 'unlinkdocuments':
             $doc = new Fdl_Collection($id);
             if (!$doc->error) {
+                $doc->setDebugMode($debugMode);
                 $selection = getHttpVars("selection");
                 if ($selection) {
                     $selection = json_decode($selection);
@@ -230,6 +236,7 @@ function documentApplyMethod(Action & $action, $id, $method, &$returntype, &$out
         case 'unlinkalldocuments':
             $doc = new Fdl_Collection($id);
             if (!$doc->error) {
+                $doc->setDebugMode($debugMode);
                 $out = $doc->unlinkAllDocuments();
             } else $out->error = $doc->error;
             break;
@@ -237,6 +244,7 @@ function documentApplyMethod(Action & $action, $id, $method, &$returntype, &$out
         case 'movedocuments':
             $doc = new Fdl_Collection($id);
             if (!$doc->error) {
+                $doc->setDebugMode($debugMode);
                 $selection = getHttpVars("selection");
                 $targetId = getHttpVars("targetIdentificator");
                 if ($selection) {
@@ -249,6 +257,7 @@ function documentApplyMethod(Action & $action, $id, $method, &$returntype, &$out
         case 'insertdocuments':
             $doc = new Fdl_Collection($id);
             if (!$doc->error) {
+                $doc->setDebugMode($debugMode);
                 $selection = getHttpVars("selection");
                 if ($selection) {
                     $selection = json_decode($selection);
@@ -577,8 +586,10 @@ function documentApplyMethod(Action & $action, $id, $method, &$returntype, &$out
                 $config->completeProperties = getHttpVars("completeProperties", "true") == "true";
                 $withContent = getHttpVars("contentStore", "false") == "true";
                 $config->getUserTags = getHttpVars("getUserTags", "false") == "true";
-                if ($withContent) $doc = new Fdl_Collection($id, $config);
-                elseif ($winfo) {
+                if ($withContent) {
+                    $doc = new Fdl_Collection($id, $config);
+                    $doc->setDebugMode($debugMode);
+                } elseif ($winfo) {
                     include_once ("DATA/Class.Workflow.php");
                     $doc = new Fdl_Workflow($id, $config);
                 } else $doc = new Fdl_Document($id, $config);
