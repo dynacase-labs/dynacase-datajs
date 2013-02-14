@@ -20,15 +20,19 @@ include_once ("DATA/Class.Application.php");
 /**
  * Display info before download
  * @param Action &$action current action
- * @global id Http var : document for file to edit (SIMPLEFILE family)
+ * @global string $id Http var : document for file to edit (SIMPLEFILE family)
  */
-function application(&$action)
+function application(Action & $action)
 {
     $id = getHttpVars("id");
     $method = getHttpVars("method");
     $err = "";
     
-    $out = false;
+    $out = new stdClass();
+    /**
+     * @var Fdl_Application $ou
+     */
+    $ou = null;
     switch (strtolower($method)) {
         case 'getparameter':
             $appName = getHttpVars("name");
@@ -47,7 +51,7 @@ function application(&$action)
             $appName = getHttpVars("name");
             $err = initTheApplication($action, $appName, $ou);
             if ($out) {
-                $out["actions"] = $ou->getexecutableactions($actionName);
+                $out["actions"] = $ou->getexecutableactions();
             }
             break;
 
@@ -72,6 +76,7 @@ function application(&$action)
     
     function initTheApplication(&$action, $appName, &$fdlapp)
     {
+        $err = '';
         if ($appName) {
             $gapp = new Application();
             $gapp->set($appName, $action->parent->parent, '', false);
