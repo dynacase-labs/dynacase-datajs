@@ -14,7 +14,6 @@
  */
 /**
  */
-
 /**
  * Workflow Class
  *
@@ -22,9 +21,13 @@
 class Fdl_Workflow extends Fdl_Document
 {
     /**
+     * @var WDoc
+     */
+    protected $doc;
+    /**
      * return properties, values and attributes definition
      */
-    function getDocument($onlyvalues = false, $completeprop = true)
+    function getDocument($onlyvalues = false, $completeprop = true, $infoprop = false, $usertags = false)
     {
         $out = parent::getDocument($onlyvalues, $completeprop);
         $out["workflow"] = $this->getWorflowInformations();
@@ -34,6 +37,7 @@ class Fdl_Workflow extends Fdl_Document
     
     function getWorflowInformations()
     {
+        $out = array();
         if ($this->doc->doctype != 'W') return null;
         $states = $this->doc->getStates();
         foreach ($states as $v) {
@@ -58,7 +62,7 @@ class Fdl_Workflow extends Fdl_Document
                 "ask" => isset($v["ask"]) ? $v["ask"] : null,
                 "preMethod" => isset($v["m1"]) ? $v["m1"] : null,
                 "postMethod" => isset($v["m2"]) ? $v["m2"] : null,
-                "noComment" => $v["nr"] ? true : false
+                "noComment" => (!empty($v["nr"])) ? true : false
             );
         }
         
@@ -153,6 +157,7 @@ msgstr "%s"', $key, str_replace('"', '\"', $text));
             //    print "<hr>$log : $ret";
             return ($ret == 0);
         }
+        return true;
     }
     
     function addState($key, $label = '', $activity = '')
@@ -182,7 +187,7 @@ msgstr "%s"', $key, str_replace('"', '\"', $text));
                     $this->setError($err);
                     return null;
                 }
-                
+                $ncy = '';
                 $states = $this->doc->getStates();
                 if ($fn == "remove") {
                     unset($states[$key]);
@@ -242,7 +247,7 @@ msgstr "%s"', $key, str_replace('"', '\"', $text));
                             $nc = preg_replace("/(extends WDoc {\s*)/i", "extends WDoc {\n\tpublic \$stateactivity=$na;\n", $nc, 1, $count);
                         }
                         $this->doc->stateactivity[$key] = $activity;
-                        $this->doc->postModify();
+                        $this->doc->postStore();
                     }
                     
                     file_put_contents($file, $nc);
@@ -322,6 +327,7 @@ msgstr "%s"', $key, str_replace('"', '\"', $text));
                 $fam = $this->doc->getFamilyDocument();
                 $classname = $fam->classname;
                 $file = sprintf("%s/FDL/Class.%s.php", DEFAULT_PUBDIR, $classname);
+                $ncy = '';
                 if (file_exists($file)) {
                     if (!is_writable($file)) {
                         $this->doc->unlock(true);
