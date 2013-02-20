@@ -20,35 +20,35 @@
 // with this program; if not, write to the Free Software Foundation, Inc.,
 // 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 // ---------------------------------------------------------------
+$app_desc = array(
+    "name" => "DATA", //Name
+    "short_name" => N_("Data api") , //Short name
+    "description" => N_("Data api") , //long description
+    "access_free" => "Y", //Access free ? (Y,N)
+    "icon" => "dataapi.png", //Icon
+    "displayable" => "N", //Should be displayed on an app list (Y,N)
+    "with_frame" => "Y", //Use multiframe ? (Y,N)
+    "childof" => "", // instance of FREEDOM GENERIC application
+    "tag" => "CORE SYSTEM"
+);
 
-$app_desc = array (
-		   "name"	 =>"DATA",		//Name
-		   "short_name"	=>N_("Data api"),    	//Short name
-		   "description"=>N_("Data api"),  //long description
-		   "access_free"=>"Y",			//Access free ? (Y,N)
-		   "icon"	=>"dataapi.png",	//Icon
-		   "displayable"=>"N",			//Should be displayed on an app list (Y,N)
-		   "with_frame"	=>"Y",			//Use multiframe ? (Y,N)
-		   "childof"	=>"",		        // instance of FREEDOM GENERIC application	
-                   "tag"        => "CORE SYSTEM"
-		   );
-
-  
-
-
-$action_desc = array (
-		      array( 
-			    "name"		=>"DOCUMENT",
-			    "short_name"	=>N_("document ressource")),
-		      array( 
-			    "name"		=>"USER",
-			    "short_name"	=>N_("user ressource")),
-		      array( 
-			    "name"		=>"APPLICATION",
-			    "short_name"	=>N_("application ressource")),
-		    
-		      array( 
-			    "name"		=>"GROUPREQUEST",
-			    "short_name"	=>N_("group document request"))
-		      );
+$action_desc = array(
+    array(
+        "name" => "DOCUMENT",
+        "short_name" => N_("document ressource")
+    ) ,
+    array(
+        "name" => "USER",
+        "short_name" => N_("user ressource")
+    ) ,
+    array(
+        "name" => "APPLICATION",
+        "short_name" => N_("application ressource")
+    ) ,
+    
+    array(
+        "name" => "GROUPREQUEST",
+        "short_name" => N_("group document request")
+    )
+);
 ?>
