@@ -19,8 +19,14 @@
  */
 global $DEBUGINFO;
 $DEBUGINFO["mbstart"] = microtime(true);
+include_once ('WHAT/autoload.php');
 include_once ('WHAT/Lib.Main.php');
 include_once ('WHAT/Class.AuthenticatorManager.php');
+
+function dataAskAuthenticate()
+{
+    return isset($_REQUEST["app"]) && isset($_REQUEST["action"]) && isset($_REQUEST["method"]) && $_REQUEST["method"] === "authent" && $_REQUEST["app"] === "DATA" && $_REQUEST["action"] === "USER";
+}
 
 $authtype = getAuthType();
 
@@ -48,10 +54,17 @@ if ($authtype == 'apache') {
             break;
 
         default:
-            sleep(2); // wait for robots
-            $o["error"] = _("not authenticated");
-            print json_encode($o);
-            exit(0);
+            if (!dataAskAuthenticate()) {
+                sleep(2); // wait for robots
+                $o["error"] = _("not authenticated");
+                print json_encode($o);
+                exit(0);
+            } else {
+                $auth = AuthenticatorManager::$auth;
+                if ($auth === false) {
+                    throw new \Dcp\Exception("Could not get authenticator.");
+                }
+            }
     }
     $_SERVER['PHP_AUTH_USER'] = AuthenticatorManager::$auth->getAuthUser();
 }
