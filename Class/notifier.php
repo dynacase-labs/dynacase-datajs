@@ -20,8 +20,8 @@ function getNotifyHisto($date, $nextdelay = 5, $limit = 1000)
         $r["delay"] = $nextdelay;
         if ($date && $date != "null") {
             $sql = sprintf("select * from doclog where level=4 and  date >= '%s' and date < '%s' limit %d", pg_escape_string($date) , pg_escape_string($r["date"]) , $limit);
-            
-            $r["sql"] = $sql;
+            /* Hide original query to client */
+            $r["sql"] = "--";
             $result = @pg_query($c, $sql);
             if ($result) {
                 $nbrows = pg_numrows($result);
@@ -30,7 +30,11 @@ function getNotifyHisto($date, $nextdelay = 5, $limit = 1000)
                     foreach ($r["notifications"] as $k => $v) if ($v["arg"]) $r["notifications"][$k]["arg"] = unserialize($v["arg"]);
                 }
             } else {
-                $r["error"] = pg_last_error($c);
+                /*
+                 * Hide specific error details and send a generic error
+                 * message, to prevent leaking database's informations.
+                */
+                $r["error"] = "Query error";
             }
         }
     }
@@ -39,4 +43,3 @@ function getNotifyHisto($date, $nextdelay = 5, $limit = 1000)
 //$_POST["date"]='2009-11-19';
 $a = getNotifyHisto($_POST["date"], 10);
 print ($a);
-?>
